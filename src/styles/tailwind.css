@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* ============================================================
+   NETERO — Variables CSS (thème sombre par défaut, light en .light)
+   Tailwind v4 : les couleurs custom se déclarent dans @theme
+   ============================================================ */
+:root,
+.dark {
+  --background: 0 0% 9%;
+  --foreground: 0 0% 90%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 51 100% 50%;
+  --card: 0 0% 13%;
+  --card-foreground: 0 0% 90%;
+  --popover: 0 0% 13%;
+  --popover-foreground: 0 0% 90%;
+  --primary: 51 100% 50%;
+  --primary-foreground: 48 100% 11%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 90%;
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 64%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 0 0% 90%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Netero tokens — dark (par défaut) */
+  --primary-container: #ffd700;
+  --primary-fixed-dim: #e9c400;
+  --on-primary: #3a3000;
+  --on-primary-container: #705e00;
+  --surface: #171717;
+  --surface-container-lowest: #0e0e0e;
+  --surface-container-low: #1c1b1b;
+  --surface-container: #202020;
+  --surface-container-high: #2a2a2a;
+  --surface-container-highest: #353534;
+  --surface-bright: #3a3939;
+  --surface-variant: #353534;
+  --on-surface: #e5e2e1;
+  --on-surface-variant: #a3a3a3;
+  --secondary-fixed-dim: #c8c6c5;
+  --outline-variant: #4d4732;
+  --error: #ffb4ab;
+}
+
+.light {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 9%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 51 100% 50%;
+  --card: 0 0% 98%;
+  --card-foreground: 0 0% 9%;
+  --popover: 0 0% 98%;
+  --popover-foreground: 0 0% 9%;
+  --primary: 51 100% 50%;
+  --primary-foreground: 48 100% 11%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 45%;
+  --accent: 0 0% 96%;
+  --accent-foreground: 0 0% 9%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  /* Netero tokens — light */
+  --primary-container: #ffd700;
+  --primary-fixed-dim: #e9c400;
+  --on-primary: #3a3000;
+  --on-primary-container: #705e00;
+  --surface: #ffffff;
+  --surface-container-lowest: #fafafa;
+  --surface-container-low: #f5f5f5;
+  --surface-container: #f0f0f0;
+  --surface-container-high: #e8e8e8;
+  --surface-container-highest: #e0e0e0;
+  --surface-bright: #d8d8d8;
+  --surface-variant: #e8e8e8;
+  --on-surface: #171717;
+  --on-surface-variant: #525252;
+  --secondary-fixed-dim: #737373;
+  --outline-variant: #a3a3a3;
+  --error: #dc2626;
+}
+
+/* ============================================================
+   Tailwind v4 : déclaration des couleurs custom dans @theme
+   ============================================================ */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-primary-container: var(--primary-container);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-surface: var(--surface);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-bright: var(--surface-bright);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-secondary-fixed-dim: var(--secondary-fixed-dim);
+  --color-outline-variant: var(--outline-variant);
+  --color-error: var(--error);
+
+  --font-sans: var(--font-inter), Inter, sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 16px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-headline-sm: 18px;
+  --text-headline-sm--line-height: 26px;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-display-hero: 56px;
+  --text-display-hero--line-height: 64px;
+  --text-display-hero-mobile: 36px;
+  --text-display-hero-mobile--line-height: 44px;
+  --text-code-snippet: 13px;
+  --text-code-snippet--line-height: 20px;
+
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-margin: 2rem;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: var(--surface);
+    color: var(--on-surface);
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+    font-feature-settings: "cv11", "ss01";
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  ::selection {
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Apparition au scroll — s'applique à toutes les pages publiques */
+  main section,
+  main [data-reveal] {
+    transition-property: opacity, transform;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .reveal-ready main section:not(.is-visible),
+  .reveal-ready main [data-reveal]:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(28px) scale(0.99);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-ready main section,
+    .reveal-ready main [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
