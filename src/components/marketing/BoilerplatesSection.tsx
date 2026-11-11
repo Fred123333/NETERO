@@ -10,11 +10,11 @@ export function BoilerplatesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-xl">
           <div>
-            <h2 className="text-primary text-lg">Catalogue Élite</h2>
+            <h2 className="text-primary-text text-lg">Catalogue Élite</h2>
             <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
               Boilerplates Prêts au Déploiement
             </h2>
-            <p className="font-body-md text-body-md text-secondary-fixed-dim mt-space-sm max-w-xl">
+            <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm max-w-xl">
               Sélectionnés et mis à jour de manière continue selon les dernières versions de Next.js
               et de l&apos;écosystème React.
             </p>
@@ -22,7 +22,7 @@ export function BoilerplatesSection() {
           <div className="mt-space-md md:mt-0">
             <Link
               href="/boilerplates"
-              className="inline-flex items-center gap-1 font-label-md text-label-md text-primary-container hover:underline"
+              className="inline-flex items-center gap-1 font-label-md text-label-md text-primary-text hover:underline"
             >
               <span>Voir tout le catalogue (14 templates)</span>
               <MoveRight size={18} />

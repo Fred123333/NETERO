@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Zap, Terminal } from "lucide-react";
+import { HeroTerminal } from "./HeroTerminal";
 
 const metrics = [
   { value: "4,800+", label: "Développeurs actifs" },
@@ -11,8 +12,9 @@ const metrics = [
 export function HeroSection() {
   return (
     <section className="relative w-full overflow-hidden px-gutter pt-space-xl pb-28">
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-surface-container-highest/60 blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-180 h-90 bg-surface-container-highest/60 blur-[140px] pointer-events-none rounded-full" />
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
+        {/* Badge release */}
         <div className="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container rounded-full shadow-md mb-space-lg">
           <span className="inline-block w-2 h-2 rounded-full bg-primary-container animate-pulse" />
           <span className="font-label-sm text-label-sm text-primary-container font-semibold tracking-wide uppercase">
@@ -20,17 +22,20 @@ export function HeroSection() {
           </span>
         </div>
 
+        {/* Titre */}
         <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero max-w-4xl text-balance text-on-surface font-bold tracking-tight">
           Expédiez vos SaaS en quelques heures,{" "}
-          <span className="text-primary">pas en plusieurs mois.</span>
+          <span className="text-primary-container">pas en plusieurs mois.</span>
         </h1>
 
-        <p className="mt-space-lg font-body-lg text-body-lg text-secondary-fixed-dim max-w-2xl text-balance">
+        {/* Sous-titre */}
+        <p className="mt-space-lg font-body-lg text-body-lg text-on-surface-variant max-w-2xl text-balance">
           La plateforme tout-en-un pour développeurs combinant des architectures Next.js 15 FullStack
           prêtes pour la production et un agent IA qui génère et déploie vos fonctionnalités
           critiques.
         </p>
 
+        {/* CTA */}
         <div className="mt-space-xl flex flex-col sm:flex-row items-center gap-space-md">
           <Link
             href="#tarifs"
@@ -48,6 +53,7 @@ export function HeroSection() {
           </Link>
         </div>
 
+        {/* 4 métriques */}
         <div className="mt-space-xl grid grid-cols-2 md:grid-cols-4 gap-space-md w-full max-w-3xl">
           {metrics.map((m) => (
             <div
@@ -57,11 +63,13 @@ export function HeroSection() {
               <div className="font-headline-md text-headline-md font-bold text-on-surface">
                 {m.value}
               </div>
-              <div className="font-body-sm text-body-sm text-secondary-fixed-dim">{m.label}</div>
+              <div className="font-body-sm text-body-sm text-on-surface-variant">{m.label}</div>
             </div>
           ))}
         </div>
 
+        {/* ⬇️ NOUVEAU — mock terminal + schéma de topologie */}
+        <HeroTerminal />
       </div>
     </section>
   );

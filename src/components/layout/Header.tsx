@@ -12,7 +12,7 @@ const nav = [
   { label: "Accueil", href: "/", path: "accueil" },
   { label: "Boilerplates", href: "/boilerplates", path: "boilerplates" },
   { label: "Fonctionnalités", href: "/fonctionnalites", path: "fonctionnalites" },
-  { label: "Tarifs", href: "/tarifs", path: "tarifs" },
+  { label: "Tarifs", href: "/#tarifs", path: "tarifs" },
 ];
 
 export function Header() {
@@ -44,10 +44,11 @@ export function Header() {
               <Link
                 key={item.path}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-colors",
+                  "px-space-md py-space-sm rounded-lg font-label-md text-label-md transition-all duration-300 cursor-pointer",
                   active
-                    ? "bg-surface-container text-on-surface font-bold"
+                    ? "text-yellow-400 font-bold"
                     : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
                 )}
               >
@@ -61,13 +62,13 @@ export function Header() {
           <ThemeToggle />
           <Link
             href="/connexion"
-            className="hidden sm:inline-flex items-center px-space-md py-space-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-high rounded-full transition-colors"
+            className="hidden sm:inline-flex items-center px-space-md py-space-sm font-label-md text-label-md text-on-surface hover:bg-surface-container-high rounded-full transition-all duration-300 cursor-pointer hover:-translate-y-0.5 hover:scale-105 active:scale-95"
           >
             Connexion
           </Link>
           <Link
             href="/inscription"
-            className="inline-flex items-center px-space-md py-space-sm font-label-md text-label-md font-semibold text-on-primary-container bg-primary-container hover:bg-primary-fixed-dim rounded-full transition-transform active:scale-95"
+            className="inline-flex items-center px-space-md py-space-sm font-label-md text-label-md font-semibold text-on-primary-container bg-primary-container hover:bg-primary-fixed-dim rounded-full transition-all duration-300 cursor-pointer hover:-translate-y-0.5 hover:scale-105 hover:shadow-lg active:scale-95"
           >
             Commencer
           </Link>

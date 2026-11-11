@@ -28,7 +28,9 @@
 
   /* Netero tokens — dark (par défaut) */
   --primary-container: #ffd700;
+  --primary-text: #ffd700;
   --primary-fixed-dim: #e9c400;
+  color-scheme: dark;
   --on-primary: #3a3000;
   --on-primary-container: #705e00;
   --surface: #171717;
@@ -69,7 +71,9 @@
 
   /* Netero tokens — light */
   --primary-container: #ffd700;
+  --primary-text: #8a6d00;
   --primary-fixed-dim: #e9c400;
+  color-scheme: light;
   --on-primary: #3a3000;
   --on-primary-container: #705e00;
   --surface: #ffffff;
@@ -82,7 +86,7 @@
   --surface-variant: #e8e8e8;
   --on-surface: #171717;
   --on-surface-variant: #525252;
-  --secondary-fixed-dim: #737373;
+  --secondary-fixed-dim: #525252;
   --outline-variant: #a3a3a3;
   --error: #dc2626;
 }
@@ -112,6 +116,7 @@
   --color-destructive-foreground: hsl(var(--destructive-foreground));
 
   --color-primary-container: var(--primary-container);
+  --color-primary-text: var(--primary-text);
   --color-primary-fixed-dim: var(--primary-fixed-dim);
   --color-on-primary: var(--on-primary);
   --color-on-primary-container: var(--on-primary-container);
@@ -218,6 +223,14 @@
     transition-duration: 700ms;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity, transform;
+  }
+
+  .reveal-ready main > div > section:nth-child(4n + 2),
+  .reveal-ready main > div > section:nth-child(4n + 3) {
+    transition-delay: 70ms;
+  }
+  .reveal-ready main > div > section:nth-child(4n + 4) {
+    transition-delay: 140ms;
   }
 
   .reveal-ready main section:not(.is-visible),

@@ -39,11 +39,11 @@ export function PillarsSection() {
     <section className="w-full px-gutter py-space-xl bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <div className="mb-space-xl max-w-2xl">
-          <h2 className="text-primary-container text-xl">Deux Pilers Fondateurs</h2>
+          <h2 className="text-primary-text text-xl">Deux Pilers Fondateurs</h2>
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             L&apos;architecture ultime au service de l&apos;autonomie totale.
           </h2>
-          <p className="font-body-md text-body-md text-secondary-fixed-dim mt-space-sm">
+          <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm">
             Fini les compromis entre code fait-main fastidieux et solutions no-code fermées. NETERO
             réunit la rigueur d&apos;un code source haut de gamme et l&apos;accélération d&apos;un
             copilote dédié.
@@ -57,12 +57,12 @@ export function PillarsSection() {
               className="p-space-xl bg-surface-container rounded-2xl shadow-xl hover:bg-surface-container-high transition-all flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary-container mb-space-lg shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary-text mb-space-lg shadow-sm">
                   <p.icon size={28} />
                 </div>
                 <div
                   className={`inline-flex px-2 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm mb-space-sm ${
-                    p.tagHighlight ? "text-primary-container" : "text-secondary-fixed-dim"
+                    p.tagHighlight ? "text-primary-text" : "text-on-surface-variant"
                   }`}
                 >
                   {p.tag}
@@ -70,7 +70,7 @@ export function PillarsSection() {
                 <h3 className="font-headline-md text-headline-md font-bold text-on-surface">
                   {p.title}
                 </h3>
-                <p className="font-body-md text-body-md text-secondary-fixed-dim mt-space-sm">
+                <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm">
                   {p.description}
                 </p>
                 <ul className="mt-space-lg space-y-space-sm">
@@ -79,17 +79,17 @@ export function PillarsSection() {
                       key={f}
                       className="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface"
                     >
-                      <BadgeCheck size={18} className="text-primary-container shrink-0" />
+                      <BadgeCheck size={18} className="text-primary-text shrink-0" />
                       <span>{f}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="mt-space-xl pt-space-md flex items-center justify-between">
-                <span className="font-label-sm text-label-sm text-secondary-fixed-dim">
+                <span className="font-label-sm text-label-sm text-on-surface-variant">
                   {p.footer}
                 </span>
-                <ArrowRight className="text-primary-container" size={20} />
+                <ArrowRight className="text-primary-text" size={20} />
               </div>
             </div>
           ))}

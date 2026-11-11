@@ -29,7 +29,7 @@ export function AdvantagesSection() {
     <section className="w-full px-gutter py-space-xl">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-xl mx-auto mb-space-xl">
-            <h2 className="text-primary-container text-lg">PERFORMANCE MEDICALE</h2>
+            <h2 className="text-primary-text text-lg">PERFORMANCE MEDICALE</h2>
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             Pourquoi les top builders choisissent NETERO
           </h2>
@@ -40,13 +40,13 @@ export function AdvantagesSection() {
               key={a.title}
               className="p-space-lg bg-surface-container rounded-xl shadow-md hover:bg-surface-container-high transition-transform hover:-translate-y-1"
             >
-              <div className="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container mb-space-md">
+              <div className="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-text mb-space-md">
                 <a.icon size={22} />
               </div>
               <h4 className="font-headline-sm text-headline-sm font-semibold text-on-surface">
                 {a.title}
               </h4>
-              <p className="font-body-sm text-body-sm text-secondary-fixed-dim mt-space-xs">
+              <p className="font-body-sm text-body-sm text-on-surface-variant mt-space-xs">
                 {a.desc}
               </p>
             </div>

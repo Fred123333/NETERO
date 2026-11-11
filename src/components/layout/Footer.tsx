@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Terminal, Code, MessageCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const columns = [
   {
@@ -33,6 +37,7 @@ const columns = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
   return (
     <footer className="w-full bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto px-gutter py-space-xl">
@@ -77,7 +82,13 @@ export function Footer() {
                   <li key={l.href} className="font-body-sm text-body-sm">
                     <Link
                       href={l.href}
-                      className="text-on-surface-variant hover:text-on-surface transition-colors"
+                      aria-current={pathname === l.href ? "page" : undefined}
+                      className={cn(
+                        "transition-colors",
+                        pathname === l.href
+                          ? "text-yellow-400 font-semibold"
+                          : "text-on-surface-variant hover:text-on-surface"
+                      )}
                     >
                       {l.label}
                     </Link>
@@ -91,16 +102,38 @@ export function Footer() {
         <div className="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm">
           <div>© 2025 NETERO Technologies Inc. Tous droits réservés.</div>
           <div className="flex items-center gap-space-lg">
-            <Link href="/conditions-utilisation" className="hover:text-on-surface transition-colors">
+            <Link
+              href="/conditions-utilisation"
+              aria-current={pathname === "/conditions-utilisation" ? "page" : undefined}
+              className={cn(
+                "transition-colors",
+                pathname === "/conditions-utilisation"
+                  ? "text-yellow-400 font-semibold"
+                  : "hover:text-on-surface"
+              )}
+            >
               Conditions
             </Link>
             <Link
               href="/politique-confidentialite"
-              className="hover:text-on-surface transition-colors"
+              aria-current={pathname === "/politique-confidentialite" ? "page" : undefined}
+              className={cn(
+                "transition-colors",
+                pathname === "/politique-confidentialite"
+                  ? "text-yellow-400 font-semibold"
+                  : "hover:text-on-surface"
+              )}
             >
               Vie Privée
             </Link>
-            <Link href="/status" className="hover:text-on-surface transition-colors">
+            <Link
+              href="/status"
+              aria-current={pathname === "/status" ? "page" : undefined}
+              className={cn(
+                "transition-colors",
+                pathname === "/status" ? "text-yellow-400 font-semibold" : "hover:text-on-surface"
+              )}
+            >
               Status des services
             </Link>
           </div>

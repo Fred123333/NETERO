@@ -13,7 +13,7 @@ const initialMessages: Message[] = [
   {
     role: "assistant",
     content:
-      "Bonjour développeur ! Quel type d'application souhaitez-vous prototyper ou expédier aujourd'hui ?",
+      "Bonjour développeur ! Quel type d’application souhaitez-vous prototyper ou expédier aujourd’hui ?",
   },
   {
     role: "user",
@@ -24,7 +24,7 @@ const initialMessages: Message[] = [
     content: (
       <>
         Je vous suggère le template <strong>SaaS AI Copilot Starter</strong>. Voulez-vous la commande
-        CLI pour l'initialiser ?
+        CLI pour l’&apos;initialiser ?
       </>
     ),
   },

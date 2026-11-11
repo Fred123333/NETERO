@@ -17,7 +17,7 @@ export function SectionBadge({ icon: Icon, label, variant = "default", className
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 px-2.5 py-1 rounded font-label-sm text-label-sm font-semibold uppercase tracking-wide",
+        "inline-flex items-center gap-1.5  font-label-sm text-label-sm font-semibold uppercase tracking-wide",
         variants[variant],
         className
       )}

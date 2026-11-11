@@ -6,7 +6,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { SectionBadge } from "@/components/shared/SectionBadge";
 import { faqItems } from "@/lib/data/faq";
 
 export function FaqSection() {
@@ -14,7 +13,7 @@ export function FaqSection() {
     <section className="w-full px-gutter py-space-xl">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-space-xl">
-          <h2 className="text-primary text-xl">Réponses Claires</h2>
+          <h2 className="text-primary-text text-xl">Réponses Claires</h2>
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             Questions Fréquentes
           </h2>
@@ -24,12 +23,12 @@ export function FaqSection() {
             <AccordionItem
               key={i}
               value={`item-${i}`}
-              className="bg-surface-container rounded-xl overflow-hidden shadow-sm border-0"
+              className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-low shadow-sm transition-colors hover:bg-surface-container"
             >
-              <AccordionTrigger className="px-space-lg py-space-md hover:no-underline font-label-md text-label-md font-semibold text-on-surface">
+              <AccordionTrigger className="px-space-lg py-space-md font-label-md text-label-md font-semibold text-on-surface hover:no-underline aria-expanded:bg-surface-container aria-expanded:text-primary-text">
                 {item.question}
               </AccordionTrigger>
-              <AccordionContent className="px-space-lg pb-space-md font-body-md text-body-md text-secondary-fixed-dim">
+              <AccordionContent className="px-space-lg pb-space-md font-body-md text-body-md text-on-surface-variant">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>

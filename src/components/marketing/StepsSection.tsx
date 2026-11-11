@@ -26,7 +26,7 @@ export function StepsSection() {
     <section className="w-full px-gutter py-space-xl">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-xl mx-auto mb-space-xl">
-          <h2 className="text-primary text-lg">FLUX DE TRAVAIL</h2>
+          <h2 className="text-primary-text text-lg">FLUX DE TRAVAIL</h2>
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             De zéro au premier client en 3 étapes
           </h2>
@@ -34,16 +34,16 @@ export function StepsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg relative">
           {steps.map((s) => (
             <div key={s.n} className="p-space-lg bg-surface-container rounded-2xl shadow-md relative">
-              <div className="font-display-hero text-display-hero text-surface-container-highest/60 select-none">
+              <div className="font-display-hero text-display-hero text-on-surface-variant/30 select-none">
                 {s.n}
               </div>
               <h3 className="font-headline-sm text-headline-sm font-bold text-on-surface mt-space-xs">
                 {s.title}
               </h3>
-              <p className="font-body-md text-body-md text-secondary-fixed-dim mt-space-sm">
+              <p className="font-body-md text-body-md text-on-surface-variant mt-space-sm">
                 {s.desc}
               </p>
-              <div className="mt-space-md p-space-sm bg-surface-container-high rounded-lg font-code text-code-snippet text-secondary-fixed-dim">
+              <div className="mt-space-md p-space-sm bg-surface-container-high rounded-lg font-code text-code-snippet text-on-surface-variant">
                 {s.code}
               </div>
             </div>
