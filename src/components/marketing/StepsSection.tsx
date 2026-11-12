@@ -34,7 +34,13 @@ export function StepsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg relative">
           {steps.map((s) => (
             <div key={s.n} className="p-space-lg bg-surface-container rounded-2xl shadow-md relative">
-              <div className="font-display-hero text-display-hero text-on-surface-variant/30 select-none">
+              <div
+                className={
+                  s.n === "02"
+                    ? "font-display-hero text-display-hero text-[#FFD700] select-none"
+                    : "font-display-hero text-display-hero text-on-surface-variant/30 select-none"
+                }
+              >
                 {s.n}
               </div>
               <h3 className="font-headline-sm text-headline-sm font-bold text-on-surface mt-space-xs">

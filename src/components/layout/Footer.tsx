@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -36,109 +37,118 @@ const columns = [
   },
 ];
 
-export function Footer() {
+function FooterInner() {
   const pathname = usePathname();
-  return (
-    <footer className="w-full bg-surface-container-lowest">
-      <div className="max-w-7xl mx-auto px-gutter py-space-xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-space-xl mb-space-xl">
-          <div className="space-y-space-md">
-            <div className="flex items-center gap-space-sm">
-              <Image
-                src="/images/logo-netero.png"
-                alt="NETERO Logo N"
-                width={28}
-                height={28}
-                className="h-7 w-auto object-contain"
-              />
-              <span className="font-headline-sm text-headline-sm tracking-tight text-on-surface font-bold uppercase">
-                NETERO
-              </span>
-            </div>
-            <p className="font-body-sm text-body-sm text-on-surface-variant">
-              Next.js production-grade boilerplates & AI fullstack app generators conçus pour les
-              développeurs exigeants.
-            </p>
-            <div className="flex items-center gap-space-sm pt-space-xs">
-              {[Terminal, Code, MessageCircle].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"
-                >
-                  <Icon size={18} />
-                </a>
-              ))}
-            </div>
-          </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <div className="font-label-md text-label-md font-semibold text-on-surface mb-space-md">
-                {col.title}
-              </div>
-              <ul className="space-y-space-sm">
-                {col.links.map((l) => (
-                  <li key={l.href} className="font-body-sm text-body-sm">
-                    <Link
-                      href={l.href}
-                      aria-current={pathname === l.href ? "page" : undefined}
-                      className={cn(
-                        "transition-colors",
-                        pathname === l.href
-                          ? "text-yellow-400 font-semibold"
-                          : "text-on-surface-variant hover:text-on-surface"
-                      )}
-                    >
-                      {l.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+  return (
+    <div className="max-w-7xl mx-auto px-gutter py-space-xl">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-space-xl mb-space-xl">
+        <div className="space-y-space-md">
+          <div className="flex items-center gap-space-sm">
+            <Image
+              src="/images/logo-netero.png"
+              alt="NETERO Logo N"
+              width={28}
+              height={28}
+              className="h-7 w-auto object-contain"
+            />
+            <span className="font-headline-sm text-headline-sm tracking-tight text-on-surface font-bold uppercase">
+              NETERO
+            </span>
+          </div>
+          <p className="font-body-sm text-body-sm text-on-surface-variant">
+            Next.js production-grade boilerplates & AI fullstack app generators conçus pour les
+            développeurs exigeants.
+          </p>
+          <div className="flex items-center gap-space-sm pt-space-xs">
+            {[Terminal, Code, MessageCircle].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-[#FFD700] hover:bg-surface-container-high transition-colors cursor-pointer"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
         </div>
 
-        <div className="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm">
-          <div>© 2025 NETERO Technologies Inc. Tous droits réservés.</div>
-          <div className="flex items-center gap-space-lg">
-            <Link
-              href="/conditions-utilisation"
-              aria-current={pathname === "/conditions-utilisation" ? "page" : undefined}
-              className={cn(
-                "transition-colors",
-                pathname === "/conditions-utilisation"
-                  ? "text-yellow-400 font-semibold"
-                  : "hover:text-on-surface"
-              )}
-            >
-              Conditions
-            </Link>
-            <Link
-              href="/politique-confidentialite"
-              aria-current={pathname === "/politique-confidentialite" ? "page" : undefined}
-              className={cn(
-                "transition-colors",
-                pathname === "/politique-confidentialite"
-                  ? "text-yellow-400 font-semibold"
-                  : "hover:text-on-surface"
-              )}
-            >
-              Vie Privée
-            </Link>
-            <Link
-              href="/status"
-              aria-current={pathname === "/status" ? "page" : undefined}
-              className={cn(
-                "transition-colors",
-                pathname === "/status" ? "text-yellow-400 font-semibold" : "hover:text-on-surface"
-              )}
-            >
-              Status des services
-            </Link>
+        {columns.map((col) => (
+          <div key={col.title}>
+            <div className="font-label-md text-label-md font-semibold text-on-surface mb-space-md">
+              {col.title}
+            </div>
+            <ul className="space-y-space-sm">
+              {col.links.map((l) => (
+                <li key={l.href} className="font-body-sm text-body-sm">
+                  <Link
+                    href={l.href}
+                    aria-current={pathname === l.href ? "page" : undefined}
+                    className={cn(
+                      "transition-colors",
+                      pathname === l.href
+                        ? "text-yellow-400 font-semibold"
+                        : "text-on-surface-variant hover:text-[#FFD700]"
+                    )}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
+        ))}
+      </div>
+
+      <div className="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+        <div>© 2025 NETERO Technologies Inc. Tous droits réservés.</div>
+        <div className="flex items-center gap-space-lg">
+          <Link
+            href="/conditions-utilisation"
+            aria-current={pathname === "/conditions-utilisation" ? "page" : undefined}
+            className={cn(
+              "transition-colors",
+              pathname === "/conditions-utilisation"
+                ? "text-yellow-400 font-semibold"
+                : "hover:text-[#FFD700]"
+            )}
+          >
+            Conditions
+          </Link>
+          <Link
+            href="/politique-confidentialite"
+            aria-current={pathname === "/politique-confidentialite" ? "page" : undefined}
+            className={cn(
+              "transition-colors",
+              pathname === "/politique-confidentialite"
+                ? "text-yellow-400 font-semibold"
+                : "hover:text-[#FFD700]"
+            )}
+          >
+            Vie Privée
+          </Link>
+          <Link
+            href="/status"
+            aria-current={pathname === "/status" ? "page" : undefined}
+            className={cn(
+              "transition-colors",
+              pathname === "/status" ? "text-yellow-400 font-semibold" : "hover:text-[#FFD700]"
+            )}
+          >
+            Status des services
+          </Link>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function Footer() {
+  return (
+    <footer className="w-full bg-surface-container-lowest">
+      <Suspense fallback={<div className="h-96" />}>
+        <FooterInner />
+      </Suspense>
     </footer>
   );
 }

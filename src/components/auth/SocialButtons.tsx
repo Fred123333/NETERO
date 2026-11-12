@@ -30,7 +30,7 @@ export function SocialButtons() {
         <div className="flex-1 h-px bg-outline-variant/40" />
       </div>
 
-      <div className="grid grid-cols-2 gap-space-sm">
+      <div className="flex flex-col gap-space-sm">
         <button
           type="button"
           className="h-11 rounded-lg bg-surface-container-lowest border border-outline-variant/40 hover:bg-surface-container-high text-on-surface font-label-md font-medium flex items-center justify-center gap-2 transition-colors"

@@ -8,7 +8,7 @@ export function PricingSection() {
     <section id="tarifs" className="w-full px-gutter py-space-xl bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-2xl mx-auto mb-space-xl">
-          <SectionBadge label="Tarification Transparente"  />
+          <SectionBadge label="Tarification Transparente" className="bg-transparent text-[#FFD700]" />
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             Investissez une fois. Expédiez pour toujours.
           </h2>

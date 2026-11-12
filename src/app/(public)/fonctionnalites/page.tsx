@@ -99,7 +99,7 @@ export default function FonctionnalitesPage() {
       <section className="relative w-full overflow-hidden px-gutter pt-space-xl pb-20">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-surface-container-highest/60 blur-[140px] pointer-events-none rounded-full" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <SectionBadge label="Fonctionnalités" variant="primary" />
+          <SectionBadge label="Fonctionnalités" className="bg-transparent text-[#FFD700]" />
           <h1 className="font-display-hero text-display-hero-mobile md:text-display-hero mt-space-md text-on-surface font-bold tracking-tight text-balance">
             Tout ce dont vous avez besoin pour{" "}
             <span className="text-[#FFD700]">expédier vite.</span>
@@ -132,7 +132,7 @@ export default function FonctionnalitesPage() {
       <section className="w-full px-gutter py-space-xl bg-surface-container-lowest">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-xl mx-auto mb-space-xl">
-            <SectionBadge label="Sous le capot" variant="primary" />
+            <SectionBadge label="Sous le capot" className="bg-transparent text-[#FFD700]" />
             <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
               Six piliers techniques, une seule plateforme
             </h2>
@@ -176,7 +176,7 @@ export default function FonctionnalitesPage() {
       <section className="w-full px-gutter py-space-xl">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-xl mx-auto mb-space-xl">
-            <SectionBadge label="Comparatif" variant="primary" />
+            <SectionBadge label="Comparatif" className="bg-transparent text-[#FFD700]" />
             <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
               Ce que vous obtenez dans chaque offre
             </h2>

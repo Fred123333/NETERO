@@ -39,7 +39,7 @@ export function PillarsSection() {
     <section className="w-full px-gutter py-space-xl bg-surface-container-lowest">
       <div className="max-w-7xl mx-auto">
         <div className="mb-space-xl max-w-2xl">
-          <h2 className="text-primary-text text-xl">Deux Pilers Fondateurs</h2>
+          <h2 className="text-[#FFD700] text-xl">Deux Pilers Fondateurs</h2>
           <h2 className="font-headline-lg text-headline-lg font-bold text-on-surface mt-space-xs">
             L&apos;architecture ultime au service de l&apos;autonomie totale.
           </h2>

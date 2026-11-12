@@ -1,9 +1,14 @@
-"use client";
-
-import { use } from "react";
 import { notFound } from "next/navigation";
 import {
-  Zap, ShieldCheck, Waves, CreditCard, Lock, Database, Palette, Activity, FolderArchive,
+  Zap,
+  ShieldCheck,
+  Waves,
+  CreditCard,
+  Lock,
+  Database,
+  Palette,
+  Activity,
+  FolderArchive,
 } from "lucide-react";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { ImageGallery } from "@/components/marketing/ImageGallery";
@@ -21,12 +26,21 @@ const iconMap = {
   monitoring: Activity,
 } as const;
 
-export default function BoilerplateDetailPage({
+/**
+ * generateStaticParams — prérendu statique de chaque boilerplate connu.
+ * Ajoute de nouvelles entrées dans boilerplate-details.ts → elles seront
+ * prérendues automatiquement au prochain build, sans rien changer ici.
+ */
+export function generateStaticParams() {
+  return Object.keys(boilerplateDetails).map((id) => ({ id }));
+}
+
+export default async function BoilerplateDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = use(params);
+  const { id } = await params;
   const detail = boilerplateDetails[id];
   if (!detail) notFound();
 
@@ -65,13 +79,12 @@ export default function BoilerplateDetailPage({
             </p>
           </div>
 
-          {/* Galerie sans images */}
+          {/* Galerie (client component) */}
           <ImageGallery items={detail.gallery} />
 
-          {/* Tabs — disposition verticale */}
+          {/* Tabs (client component) */}
           <Tabs defaultValue="apercu" className="w-full" orientation="vertical">
             <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-space-lg">
-              {/* Colonne des onglets empilés */}
               <TabsList className="flex flex-col items-stretch gap-1 bg-transparent p-0 h-auto w-full">
                 <TabsTrigger
                   value="apercu"
@@ -99,7 +112,6 @@ export default function BoilerplateDetailPage({
                 </TabsTrigger>
               </TabsList>
 
-              {/* Contenu des onglets */}
               <div className="min-w-0">
                 <TabsContent value="apercu" className="mt-0 flex flex-col gap-space-lg">
                   <div className="flex flex-col gap-space-md">
@@ -152,7 +164,8 @@ export default function BoilerplateDetailPage({
                       Prérequis & Stack Technique
                     </h2>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">
-                      Pensé pour être déployé en 1 clic sur Vercel, Railway ou un VPS auto-hébergé avec Docker Compose inclus.
+                      Pensé pour être déployé en 1 clic sur Vercel, Railway ou un VPS
+                      auto-hébergé avec Docker Compose inclus.
                     </p>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs">
                       {detail.stack.map((s) => (
@@ -178,7 +191,10 @@ export default function BoilerplateDetailPage({
                       Architecture Fluctuation & Edge Streaming
                     </h3>
                     <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                      Le flux d'inférence s'exécute directement sur l'Edge Runtime de Next.js pour réduire la latence réseau à moins de 15ms. Les jetons consommés sont décomptés de façon asynchrone par un job worker afin de ne jamais bloquer la réponse de l'utilisateur.
+                      Le flux d'inférence s'exécute directement sur l'Edge Runtime de
+                      Next.js pour réduire la latence réseau à moins de 15ms. Les jetons
+                      consommés sont décomptés de façon asynchrone par un job worker afin
+                      de ne jamais bloquer la réponse de l'utilisateur.
                     </p>
                     <div className="p-space-sm bg-surface-container-lowest rounded-lg font-code text-code-snippet text-on-surface-variant whitespace-pre-wrap">
                       {`Client UI ──► Edge Route Handler ──► Anthropic/OpenAI API (SSE Stream)
@@ -193,7 +209,9 @@ export default function BoilerplateDetailPage({
                       Guide de démarrage rapide
                     </h3>
                     <p className="font-body-md text-body-md text-on-surface-variant">
-                      Une documentation exhaustive de 45 pages couvre la création des clés d'API Stripe, la configuration du DNS personnalisé et le déploiement sur Vercel sans accroc.
+                      Une documentation exhaustive de 45 pages couvre la création des clés
+                      d'API Stripe, la configuration du DNS personnalisé et le déploiement
+                      sur Vercel sans accroc.
                     </p>
                     <div className="flex items-center gap-space-sm pt-space-xs">
                       <FolderArchive size={20} className="text-[#FFD700]" />
@@ -215,9 +233,18 @@ export default function BoilerplateDetailPage({
                       </span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 font-body-sm text-body-sm text-on-surface-variant">
-                      <li>Mise à niveau vers Next.js 15.0 stable avec React 19 canary support.</li>
-                      <li>Ajout du connecteur Claude 3.5 Sonnet avec extraction de métadonnées de tokens.</li>
-                      <li>Optimisation de la table de cache Prisma pour réduction de 40% des requêtes en base.</li>
+                      <li>
+                        Mise à niveau vers Next.js 15.0 stable avec React 19 canary
+                        support.
+                      </li>
+                      <li>
+                        Ajout du connecteur Claude 3.5 Sonnet avec extraction de
+                        métadonnées de tokens.
+                      </li>
+                      <li>
+                        Optimisation de la table de cache Prisma pour réduction de 40% des
+                        requêtes en base.
+                      </li>
                     </ul>
                   </div>
                 </TabsContent>

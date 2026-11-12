@@ -10,22 +10,27 @@ interface ThemeContextValue {
 
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
+function applyTheme(t: Theme) {
+  const root = document.documentElement;
+  root.classList.remove("dark", "light");
+  root.classList.add(t);
+  root.style.colorScheme = t;
+}
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
-    return document.documentElement.classList.contains("light") ? "light" : "dark";
-  });
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  function applyTheme(t: Theme) {
-    const root = document.documentElement;
-    root.classList.remove("dark", "light");
-    root.classList.add(t);
-    root.style.colorScheme = t;
-  }
+    const stored = localStorage.getItem("netero-theme");
+    const initial: Theme =
+      stored === "light" || stored === "dark"
+        ? stored
+        : document.documentElement.classList.contains("light")
+          ? "light"
+          : "dark";
+    setTheme(initial);
+    applyTheme(initial);
+  }, []);
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";

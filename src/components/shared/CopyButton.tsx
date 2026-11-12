@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { Copy } from "lucide-react";
 
-export function CopyButton({ text }: { text: string }) {
+export function CopyButton({
+  text,
+  label = "Installation CLI rapide :",
+}: {
+  text: string;
+  label?: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {
@@ -19,7 +25,7 @@ export function CopyButton({ text }: { text: string }) {
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center justify-between text-on-surface-variant text-[11px]">
-        <span className="font-mono">Installation CLI rapide :</span>
+        {label ? <span className="font-mono">{label}</span> : <span />}
         <span
           className={`text-[#FFD700] font-semibold transition-opacity ${
             copied ? "opacity-100" : "opacity-0"
