@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Geist } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script"; // ← Ajout de l'import
 import "@/styles/tailwind.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
+const geist = localFont({
+  src: "./fonts/geist-latin.woff2",
+  weight: "100 900",
+  variable: "--font-sans",
+  display: "swap",
+});
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter-latin.woff2",
+  weight: "100 900",
   variable: "--font-inter",
   display: "swap",
 });
