@@ -49,6 +49,12 @@ function HeaderNav() {
   );
 }
 
+function ScrollProgressGate() {
+  const pathname = usePathname();
+  const isBoilerplateDetail = /^\/boilerplates\/[^/]+$/.test(pathname);
+  return isBoilerplateDetail ? <ScrollProgress /> : null;
+}
+
 function MobileNav({ onNavigate }: { onNavigate: () => void }) {
   const pathname = usePathname();
 
@@ -145,7 +151,9 @@ export function Header() {
         </div>
 
         {mobileOpen && <MobileNav onNavigate={() => setMobileOpen(false)} />}
-        <ScrollProgress />
+        <Suspense fallback={null}>
+          <ScrollProgressGate />
+        </Suspense>
       </div>
     </header>
   );

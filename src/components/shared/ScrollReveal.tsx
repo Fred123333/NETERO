@@ -1,11 +1,11 @@
 "use client";
 
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const SELECTOR = "section, [data-reveal]";
 
-function ScrollRevealInner() {
+export function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
@@ -51,12 +51,4 @@ function ScrollRevealInner() {
   }, [pathname]);
 
   return null;
-}
-
-export function ScrollReveal() {
-  return (
-    <Suspense fallback={null}>
-      <ScrollRevealInner />
-    </Suspense>
-  );
 }
